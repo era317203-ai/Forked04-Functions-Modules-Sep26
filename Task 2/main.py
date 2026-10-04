@@ -8,8 +8,14 @@ SPAM_WORDS = ["скидка", "бесплатно", "выигрыш", "клик�
 
 def main():
     # Ваш код здесь
-    pass
-
-
+    message = input ("Введите текс")
+    warnings, publish = su.moderate_message(message,SPAM_WORDS)
+    for warning in warnings:
+        print(warning)
+    if publish:
+        print(message)
+    else:
+        print("Сообщение не публикуется")
+        
 if __name__ == "__main__":
     main()

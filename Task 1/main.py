@@ -29,9 +29,42 @@ def show_menu():
     
     
 def main():
-    # Ваш код здесь
-    pass
 
+    while True:
+        choice = input("Выберите пункт: ")
+
+        match choice:
+          case "1":
+            print("\nВсе клиенты:")
+            gu.show_all(clients)
+          # case "2":
+          #   print("\nВывести клиентов заданной марки:")
+          #   gu.group_by_brand(clients)
+          case "3":
+            print("\nИзменить сумму обслуживания:")
+            gu.add_service_cost(clients,10,30)
+          case "4":
+            print("\nУдалить клиента:")
+            gu.delete_by_index(clients,5)
+          case "5":
+            print("\nНайти самую дорогую машину:")
+            gu.get_most_expensive(clients)
+        #   case "6":
+        #     print("\nУдалить машины старше N лет:")
+        #     gu.delete_older_than(clients)
+        #   case "7":
+        #     print("\nГруппирует клиентов по марке с использованием itertools.groupby.:")
+        #     gu.group_by_brand(clients)
+          case "0":
+            print("\nПрограмма завершена.")
+            
+  
+#    gu.show_all(clients)
+#    gu.add_service_cost(clients,10,30)
+#    print (clients[10])
+#    gu.delete_by_index(clients,5)
+#    gu.show_all(clients)
+#    gu.get_most_expensive(clients)
 
 if __name__ == "__main__":
     main()
