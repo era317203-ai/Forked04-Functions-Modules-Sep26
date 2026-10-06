@@ -26,7 +26,9 @@ def show_menu():
 7 — сгруппировать клиентов по марке
 0 — выход
 """)
-    
+
+#  print(f"Удалено клиентов за сессию: {get_count()}")
+#                   break    
     
 def main():
 
@@ -37,26 +39,40 @@ def main():
           case "1":
             print("\nВсе клиенты:")
             gu.show_all(clients)
-          # case "2":
-          #   print("\nВывести клиентов заданной марки:")
-          #   gu.group_by_brand(clients)
+          case "2":
+            print("\nВывести клиентов заданной марки: ")
+            brand = (input("Введите марку машины: "))
+            result = gu.filter_by_brand(clients,brand)
+            print(result)
+
           case "3":
-            print("\nИзменить сумму обслуживания:")
-            gu.add_service_cost(clients,10,30)
+              print("\nИзменить сумму обслуживания:")
+              nomer = int(input("\nВведите номер клиента: "))
+              summa = int(input("\nВведите сумму обслуживания: "))
+              gu.add_service_cost(clients,nomer,summa)
+
           case "4":
-            print("\nУдалить клиента:")
-            gu.delete_by_index(clients,5)
+              print("\nУдалить клиента:")
+              nomer = int(input("\nВведите номер клиента: "))
+              gu.delete_by_index(clients,nomer)
+
           case "5":
             print("\nНайти самую дорогую машину:")
             gu.get_most_expensive(clients)
-        #   case "6":
-        #     print("\nУдалить машины старше N лет:")
-        #     gu.delete_older_than(clients)
-        #   case "7":
-        #     print("\nГруппирует клиентов по марке с использованием itertools.groupby.:")
-        #     gu.group_by_brand(clients)
+
+          case "6":
+            print("\nУдалить машины старше N лет:")
+            years = int(input("\nВведите N лет: "))
+            gu.delete_older_than(clients,years)
+
+
+          case "7":
+            print("\nГруппирует клиентов по марке с использованием itertools.groupby.:")
+            gu.group_by_brand(clients)
+        
           case "0":
             print("\nПрограмма завершена.")
+            break
             
   
 #    gu.show_all(clients)

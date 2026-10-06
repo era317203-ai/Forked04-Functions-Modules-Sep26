@@ -70,5 +70,5 @@ def moderate_message(message, spam_words):
 
 def add_publish_timestamp(message):
     """Добавляет к сообщению дату и время публикации."""
-    # timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    # return f"{message}\nДата публикации: {timestamp}"
+    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    return f"{message}\nДата публикации: {timestamp}"
